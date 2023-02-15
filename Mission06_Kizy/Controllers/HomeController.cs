@@ -12,10 +12,13 @@ namespace Mission06_Kizy.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+        private MovieApplicationContext movieContext { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        //Constructor
+        public HomeController(ILogger<HomeController> logger, MovieApplicationContext someName)
         {
             _logger = logger;
+            movieContext = someName;
         }
 
         public IActionResult Index()
@@ -32,6 +35,8 @@ namespace Mission06_Kizy.Controllers
         [HttpPost]
         public IActionResult MovieForm(ApplicationResponse ar)
         {
+            movieContext.Add(ar);
+            movieContext.SaveChanges();
             return View("Confirmation", ar);
         }
 
