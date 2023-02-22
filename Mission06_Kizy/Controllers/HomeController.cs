@@ -11,14 +11,12 @@ namespace Mission06_Kizy.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
-        private MovieApplicationContext movieContext { get; set; }
+        private MovieApplicationContext MovieContext { get; set; }
 
         //Constructor
-        public HomeController(ILogger<HomeController> logger, MovieApplicationContext someName)
+        public HomeController( MovieApplicationContext someName)
         {
-            _logger = logger;
-            movieContext = someName;
+            MovieContext = someName;
         }
 
         public IActionResult Index()
@@ -29,26 +27,24 @@ namespace Mission06_Kizy.Controllers
         [HttpGet]
         public IActionResult MovieForm()
         {
+            ViewBag.Categories = MovieContext.Categories.ToList();
             return View();
         }
 
         [HttpPost]
         public IActionResult MovieForm(ApplicationResponse ar)
         {
-            movieContext.Add(ar);
-            movieContext.SaveChanges();
+            MovieContext.Add(ar);
+            MovieContext.SaveChanges();
             return View("Confirmation", ar);
         }
 
-        public IActionResult Privacy()
+        public IActionResult MovieList()
         {
-            return View();
-        }
+            var applications = MovieContext.Responses.OrderBy(x => x.Title)
+                .ToList();
 
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            return View(applications);
         }
     }
 }

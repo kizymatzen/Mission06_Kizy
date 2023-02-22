@@ -8,26 +8,58 @@ namespace Mission06_Kizy.Models
 {
     public class MovieApplicationContext : DbContext
     {
-        private bool yes;
-
         //Constructor
         public MovieApplicationContext(DbContextOptions<MovieApplicationContext> options): base (options)
         {
             //Leave blank for now
         }
         
-        public DbSet<ApplicationResponse> responses { get; set; }
+        public DbSet<ApplicationResponse> Responses { get; set; }
+        public DbSet<Category> Categories { get; set; }
+ 
 
+        //Seed data
         protected override void OnModelCreating(ModelBuilder mb)
         {
+            mb.Entity<Category>().HasData
+                (
+                new Category { CategoryId = 1, CategoryName = "Action" },
+                new Category { CategoryId = 2, CategoryName = "Adventure" },
+                new Category { CategoryId = 3, CategoryName = "Animation" },
+                new Category { CategoryId = 4, CategoryName = "Biography" },
+                new Category { CategoryId = 5, CategoryName = "Comedy" },
+                new Category { CategoryId = 6, CategoryName = "Crime" },
+                new Category { CategoryId = 7, CategoryName = "Documentary" },
+                new Category { CategoryId = 8, CategoryName = "Drama" },
+                new Category { CategoryId = 9, CategoryName = "Family" },
+                new Category { CategoryId = 10, CategoryName = "Fantasy" },
+                new Category { CategoryId = 11, CategoryName = "Film Noir" },
+                new Category { CategoryId = 12, CategoryName = "History" },
+                new Category { CategoryId = 13, CategoryName = "Horror" },
+                new Category { CategoryId = 14, CategoryName = "Music" },
+                new Category { CategoryId = 15, CategoryName = "Musical" },
+                new Category { CategoryId = 16, CategoryName = "Mystery" },
+                new Category { CategoryId = 17, CategoryName = "Romance" },
+                new Category { CategoryId = 18, CategoryName = "Sci-Fi" },
+                new Category { CategoryId = 19, CategoryName = "Sport" },
+                new Category { CategoryId = 20, CategoryName = "Superhero" },
+                new Category { CategoryId = 21, CategoryName = "Television" },
+                new Category { CategoryId = 22, CategoryName = "Thriller" },
+                new Category { CategoryId = 23, CategoryName = "VHS" },
+                new Category { CategoryId = 24, CategoryName = "War" },
+                new Category { CategoryId = 25, CategoryName = "Western" },
+                new Category { CategoryId = 26, CategoryName = "Action/Adventure" }
+                );
+
+            
             mb.Entity<ApplicationResponse>().HasData(
 
                 new ApplicationResponse
                 { 
                     ApplicationId = 1,
-                    Category = "Action / Adventure",
+                    CategoryId = 1,
                     Title = "Avengers, The",
-                    Year = 2012,
+                    Year = 2011,
                     Director = "Joss Whedon",
                     Rating = "PG-13",
                     Edited = false,
@@ -38,9 +70,9 @@ namespace Mission06_Kizy.Models
                 new ApplicationResponse
                 {
                     ApplicationId = 2,
-                    Category = "Action / Adventure",
+                    CategoryId = 2,
                     Title = "Batman & Robin",
-                    Year = 1997,
+                    Year = 1989,
                     Director = "Joel Schumacher",
                     Rating = "PG-13",
                     Edited = false,
@@ -52,12 +84,12 @@ namespace Mission06_Kizy.Models
                 new ApplicationResponse
                 {
                     ApplicationId = 3,
-                    Category = "Action / Adventure",
+                    CategoryId = 3,
                     Title = "Batman Begins",
-                    Year = 2005,
+                    Year = 1997,
                     Director = "Christopher Nolan",
                     Rating = "PG-13",
-                    Edited = true,
+                    Edited = false,
                     LentTo = " ",
                     Notes = " "
                 }
