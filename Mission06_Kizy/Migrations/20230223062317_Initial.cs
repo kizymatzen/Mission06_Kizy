@@ -29,9 +29,9 @@ namespace Mission06_Kizy.Migrations
                     Director = table.Column<string>(nullable: false),
                     Year = table.Column<int>(nullable: false),
                     LentTo = table.Column<string>(nullable: true),
-                    Notes = table.Column<string>(maxLength: 25, nullable: false),
                     Rating = table.Column<string>(nullable: false),
                     Edited = table.Column<bool>(nullable: false),
+                    Notes = table.Column<string>(maxLength: 25, nullable: true),
                     CategoryId = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -178,17 +178,17 @@ namespace Mission06_Kizy.Migrations
             migrationBuilder.InsertData(
                 table: "Responses",
                 columns: new[] { "ApplicationId", "CategoryId", "Director", "Edited", "LentTo", "Notes", "Rating", "Title", "Year" },
-                values: new object[] { 1, 1, "Joss Whedon", false, " ", " ", "PG-13", "Avengers, The", 2011 });
+                values: new object[] { 1, 1, "Joss Whedon", false, "", "", "PG-13", "Avengers, The", 2011 });
 
             migrationBuilder.InsertData(
                 table: "Responses",
                 columns: new[] { "ApplicationId", "CategoryId", "Director", "Edited", "LentTo", "Notes", "Rating", "Title", "Year" },
-                values: new object[] { 2, 2, "Joel Schumacher", false, " ", " ", "PG-13", "Batman & Robin", 1989 });
+                values: new object[] { 2, 2, "Joel Schumacher", false, "", "", "PG-13", "Batman & Robin", 1989 });
 
             migrationBuilder.InsertData(
                 table: "Responses",
                 columns: new[] { "ApplicationId", "CategoryId", "Director", "Edited", "LentTo", "Notes", "Rating", "Title", "Year" },
-                values: new object[] { 3, 3, "Christopher Nolan", false, " ", " ", "PG-13", "Batman Begins", 1997 });
+                values: new object[] { 3, 3, "Christopher Nolan", false, "", "", "PG-13", "Batman Begins", 1997 });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Responses_CategoryId",

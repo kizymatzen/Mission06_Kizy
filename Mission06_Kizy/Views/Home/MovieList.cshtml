@@ -4,36 +4,45 @@
 
 @model List<ApplicationResponse>
 
-<table class="table table-bordered table-striped">
+<div class="container">
+    <h2 class="my-4 text-center">Movie List</h2>
 
-    <thead class="font-weight-bold">
-        <tr>
-            <td>Category</td>
-            <td>Title</td>
-            <td>Year</td>
-            <td>Director</td>
-            <td>Rating</td>
-            <td>Edited</td>
-            <td>Lent To</td>
-            <td>Notes</td>
-        </tr>
-    </thead>
+    <table class="table table-bordered table-striped">
 
-    <tbody>
-        @foreach (var x in Model)
-        {
-        <tr>
-            <td>@x.Category</td>
-            <td>@x.Title</td>
-            <td>@x.Year</td>
-            <td>@x.Director</td>
-            <td>@x.Rating</td>
-            <td>@x.Edited</td>
-            <td>@x.LentTo</td>
-            <td>@x.Notes</td>
-        </tr>
+        <thead class="thead-dark">
+            <tr>
+                <th>Category</th>
+                <th>Title</th>
+                <th>Year</th>
+                <th>Director</th>
+                <th>Rating</th>
+                <th>Edited</th>
+                <th>Lent To</th>
+                <th>Notes</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
 
-        }
-    </tbody>
+        <tbody>
+            @foreach (var x in Model)
+            {
+                <tr>
+                    <td>@x.Category.CategoryName</td>
+                    <td>@x.Title</td>
+                    <td>@x.Year</td>
+                    <td>@x.Director</td>
+                    <td>@x.Rating</td>
+                    <td>@(x.Edited ? "Yes" : "No")</td>
+                    <td>@x.LentTo</td>
+                    <td>@x.Notes</td>
 
-</table>
+                    <td><a class="btn btn-primary" asp-controller="Home" asp-action="Edit" asp-route-applicationid="@x.ApplicationId">Edit</a></td>
+                    <td><a class="btn btn-danger" asp-controller="Home" asp-action="Delete" asp-route-applicationid="@x.ApplicationId">Delete</a></td>
+                </tr>
+
+            }
+        </tbody>
+
+    </table>
+</div>

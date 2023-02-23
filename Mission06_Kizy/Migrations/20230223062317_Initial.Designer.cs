@@ -8,7 +8,7 @@ using Mission06_Kizy.Models;
 namespace Mission06_Kizy.Migrations
 {
     [DbContext(typeof(MovieApplicationContext))]
-    [Migration("20230222032611_Initial")]
+    [Migration("20230223062317_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,7 +37,6 @@ namespace Mission06_Kizy.Migrations
                         .HasColumnType("TEXT");
 
                     b.Property<string>("Notes")
-                        .IsRequired()
                         .HasColumnType("TEXT")
                         .HasMaxLength(25);
 
@@ -65,8 +64,8 @@ namespace Mission06_Kizy.Migrations
                             CategoryId = 1,
                             Director = "Joss Whedon",
                             Edited = false,
-                            LentTo = " ",
-                            Notes = " ",
+                            LentTo = "",
+                            Notes = "",
                             Rating = "PG-13",
                             Title = "Avengers, The",
                             Year = 2011
@@ -77,8 +76,8 @@ namespace Mission06_Kizy.Migrations
                             CategoryId = 2,
                             Director = "Joel Schumacher",
                             Edited = false,
-                            LentTo = " ",
-                            Notes = " ",
+                            LentTo = "",
+                            Notes = "",
                             Rating = "PG-13",
                             Title = "Batman & Robin",
                             Year = 1989
@@ -89,8 +88,8 @@ namespace Mission06_Kizy.Migrations
                             CategoryId = 3,
                             Director = "Christopher Nolan",
                             Edited = false,
-                            LentTo = " ",
-                            Notes = " ",
+                            LentTo = "",
+                            Notes = "",
                             Rating = "PG-13",
                             Title = "Batman Begins",
                             Year = 1997

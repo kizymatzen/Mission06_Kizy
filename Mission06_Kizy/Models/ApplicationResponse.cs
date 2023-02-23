@@ -11,26 +11,30 @@ namespace Mission06_Kizy.Models
         [Key]
         [Required]
         public int ApplicationId { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Please, Enter movie title.")]
         public string Title { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Please, Enter movie director.")]
         public string Director { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Please, Enter movie year.")]
         public int Year { get; set; }
         public string LentTo { get; set; }
-        [Required]
+
+        [Required(ErrorMessage = "Please, select movie rating.")]
+        public string Rating { get; set; }
+
+        public bool Edited { get; set; }
 
         [MaxLength(25)]
         public string Notes { get; set; }
-        [Required]
-        public string Rating { get; set; }
-        public bool Edited { get; set; }
 
 
         //Build Foreign Key Relationship
 
         //Category
-        [Required]
+        [Required(ErrorMessage = "Please, select movie category.")]
         public int CategoryId { get; set; }
         public Category Category { get; set; }
     }

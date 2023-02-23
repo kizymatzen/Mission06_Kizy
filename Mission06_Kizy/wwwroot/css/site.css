@@ -143,3 +143,9 @@ select:focus {
 h3 > span {
     color: red;
 }
+
+.bg-image {
+    background-image: url('path/to/background-image.jpg');
+    background-size: cover;
+}
+

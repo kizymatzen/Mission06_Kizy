@@ -39,16 +39,17 @@ namespace Mission06_Kizy.Models
                 new Category { CategoryId = 14, CategoryName = "Music" },
                 new Category { CategoryId = 15, CategoryName = "Musical" },
                 new Category { CategoryId = 16, CategoryName = "Mystery" },
-                new Category { CategoryId = 17, CategoryName = "Romance" },
-                new Category { CategoryId = 18, CategoryName = "Sci-Fi" },
-                new Category { CategoryId = 19, CategoryName = "Sport" },
-                new Category { CategoryId = 20, CategoryName = "Superhero" },
-                new Category { CategoryId = 21, CategoryName = "Television" },
-                new Category { CategoryId = 22, CategoryName = "Thriller" },
-                new Category { CategoryId = 23, CategoryName = "VHS" },
-                new Category { CategoryId = 24, CategoryName = "War" },
-                new Category { CategoryId = 25, CategoryName = "Western" },
-                new Category { CategoryId = 26, CategoryName = "Action/Adventure" }
+                new Category { CategoryId = 17, CategoryName = "Miscellaneous" },
+                new Category { CategoryId = 18, CategoryName = "Romance" },
+                new Category { CategoryId = 19, CategoryName = "Sci-Fi" },
+                new Category { CategoryId = 20, CategoryName = "Sport" },
+                new Category { CategoryId = 21, CategoryName = "Superhero" },
+                new Category { CategoryId = 22, CategoryName = "Television" },
+                new Category { CategoryId = 23, CategoryName = "Thriller" },
+                new Category { CategoryId = 24, CategoryName = "VHS" },
+                new Category { CategoryId = 25, CategoryName = "War" },
+                new Category { CategoryId = 26, CategoryName = "Western" },
+                new Category { CategoryId = 27, CategoryName = "Action/Adventure" }
                 );
 
             
@@ -63,8 +64,8 @@ namespace Mission06_Kizy.Models
                     Director = "Joss Whedon",
                     Rating = "PG-13",
                     Edited = false,
-                    LentTo = " ",
-                    Notes = " "
+                    LentTo = "",
+                    Notes = ""
                 },
 
                 new ApplicationResponse
@@ -76,8 +77,8 @@ namespace Mission06_Kizy.Models
                     Director = "Joel Schumacher",
                     Rating = "PG-13",
                     Edited = false,
-                    LentTo = " ",
-                    Notes = " "
+                    LentTo = "",
+                    Notes = ""
 
                 },
 
@@ -90,8 +91,8 @@ namespace Mission06_Kizy.Models
                     Director = "Christopher Nolan",
                     Rating = "PG-13",
                     Edited = false,
-                    LentTo = " ",
-                    Notes = " "
+                    LentTo = "",
+                    Notes = ""
                 }
 
                 );
