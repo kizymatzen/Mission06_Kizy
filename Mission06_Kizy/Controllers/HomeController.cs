@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Mission06_Kizy.Models;
 using System;
@@ -96,5 +97,16 @@ namespace Mission06_Kizy.Controllers
 
             return RedirectToAction("MovieList");
         }
+
+        public IActionResult Table()
+        {
+            var applications = MovieContext.Responses
+                .Include(x => x.Category)
+                .ToList();
+
+            return View(applications);
+        }
+
+
     }
 }
