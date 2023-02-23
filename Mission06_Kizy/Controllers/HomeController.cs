@@ -55,9 +55,9 @@ namespace Mission06_Kizy.Controllers
         public IActionResult MovieList()
         {
             var applications = MovieContext.Responses
+                .Include(x => x.Category)
                 .OrderBy(x => x.Title)
                 .ToList();
-
             return View(applications);
         }
 
@@ -97,16 +97,6 @@ namespace Mission06_Kizy.Controllers
 
             return RedirectToAction("MovieList");
         }
-
-        public IActionResult Table()
-        {
-            var applications = MovieContext.Responses
-                .Include(x => x.Category)
-                .ToList();
-
-            return View(applications);
-        }
-
 
     }
 }
